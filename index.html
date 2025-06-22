@@ -13,7 +13,7 @@
             <button><img src="./icons/search.png" alt="searchIcon"></button>
         </div>
         <div class="weather">
-            <img src="./icons/rain.png" class="weather-icon">
+            <img src="./icons/rain.png" class="weatherIcon">
             <h1 class="temp">22°C</h1>
             <h2 class="city">New York</h2>
             <div class="details">
@@ -40,18 +40,37 @@
 
         const searchBox = document.querySelector(".search input");
         const searchBtn = document.querySelector(".search button");
+        const weatherIcon = document.querySelector(".weatherIcon");
 
         async function checkWeather(city){
             const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
             var data = await response.json();
+            
             console.log(data);
 
             document.querySelector(".city").innerHTML = data?.name.toUpperCase();
             document.querySelector(".temp").innerHTML = Math.round(data?.main?.temp) + "°C";
             document.querySelector(".humidity").innerHTML = data?.main?.humidity + "%";
             document.querySelector(".wind").innerHTML = data?.wind?.speed + " km/h";
+
+            if(data.weather[0].main == "Clouds"){
+                weatherIcon.src = "./icons/clouds.png"
+            }
+            else if(data.weather[0].main == "Clear"){
+                weatherIcon.src = "./icons/clear.png"
+            }
+            else if(data.weather[0].main == "Rain"){
+                weatherIcon.src = "./icons/rain.png"
+            }
+            else if(data.weather[0].main == "Drizzle"){
+                weatherIcon.src = "./icons/drizzle.png"
+            }
+            else if(data.weather[0].main == "Mist"){
+                weatherIcon.src = "./icons/mist.png"
+            }
+            console.log(data.weather[0].main);
         } 
-        searchBtn.addEventListener("click", ()=>{
+        searchBtn?.addEventListener("click", ()=>{
             checkWeather(searchBox.value)
         })
     </script>
