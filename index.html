@@ -67,11 +67,16 @@
                 weatherIcon.src = "./icons/mist.png"
             }
 
-            document.querySelector("weather").style.display = "block"
+            document.querySelector(".weather").style.display = "block";
         } 
         searchBtn?.addEventListener("click", ()=>{
             checkWeather(searchBox.value)
         })
+        searchBox?.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                checkWeather(searchBox.value);
+            }
+});
     </script>
 </body>
 </html>
