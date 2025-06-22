@@ -103,6 +103,10 @@ body{
     display: none;
 }
 
+.favIcon{
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.37);
+}
+
 /* resposive for phone  */
 @media screen and (max-width:576px) {
 .details{

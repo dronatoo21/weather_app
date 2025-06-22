@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
+    <link class="favIcon" rel="shortcut icon" href="./icons/favIcon.png" type="image/x-icon">
 </head>
 <body>
     <div class="card">
@@ -59,21 +60,27 @@
                 document.querySelector(".humidity").innerHTML = data?.main?.humidity + "%";
                 document.querySelector(".wind").innerHTML = data?.wind?.speed + " km/h";
                 document.querySelector(".wther").innerHTML = data?.weather[0]?.main;
+                
 
                 if(data.weather[0].main == "Clouds"){
                     weatherIcon.src = "./icons/clouds.png"
+                    document.querySelector(".favIcon").href = "./icons/clouds.png"
                 }
                 else if(data.weather[0].main == "Clear"){
                     weatherIcon.src = "./icons/clear.png"
+                    document.querySelector(".favIcon").href = "./icons/clear.png"
                 }
                 else if(data.weather[0].main == "Rain"){
                     weatherIcon.src = "./icons/rain.png"
+                    document.querySelector(".favIcon").href = "./icons/rain.png"
                 }
                 else if(data.weather[0].main == "Drizzle"){
                     weatherIcon.src = "./icons/drizzle.png"
+                    document.querySelector(".favIcon").href = "./icons/drizzle.png"
                 }
                 else if(data.weather[0].main == "Mist"){
                     weatherIcon.src = "./icons/mist.png"
+                    document.querySelector(".favIcon").href = "./icons/mist.png"
                 }
 
                 document.querySelector(".weather").style.display = "block";
